@@ -201,12 +201,28 @@ video {
   direction: rtl;
 }
 
-/* 
-.enter {
+@keyframes options-enter-animation {
+  to {
+    translate: 0px;
+    opacity: 1;
+    width: 100%;
+  }
 }
-.exit {
-  animation: options-exit-animation forwards 0.3s;
-} */
+
+@keyframes options-exit-animation {
+  from {
+    translate: 0px;
+    opacity: 1;
+    width: 100%;
+    /* opacity: 1; */
+  }
+  to {
+    translate: 218px;
+    opacity: 0;
+    display: none;
+    width: 0%;
+  }
+}
 
 .timeline-div {
   --width: 0px;

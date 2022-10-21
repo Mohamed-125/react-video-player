@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 const SettingsBtn = ({ setQuality, quality, setSavedTime, videoRef }) => {
-  const [settings, setSettings] = useState(true);
+  const [settings, setSettings] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState({
     opened: false,
     value: 1,
   });
-  const [availableQualities, setAvailableQualities] = useState([
-    144, 240, 360, 480,
-  ]);
+  const [availableQualities] = useState([144, 240, 360, 480]);
   useEffect(() => {
     if (!settings) {
       setQuality((pre) => {

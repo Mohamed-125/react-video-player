@@ -19,7 +19,6 @@ const PlaypauseBtn = ({ videoRef, played, setPlayed }) => {
     } else {
       videoRef.current.pause();
     }
-    console.log(played);
   }, [played]);
 
   return (

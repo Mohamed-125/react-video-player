@@ -98,30 +98,28 @@ function App() {
               }
             }}
             onTouchMove={(e) => {
-              if (e.buttons !== 2) {
-                const rect = e.target.getBoundingClientRect();
-                const precent = Math.min(
-                  Math.max(0, (e.clientX - rect.x) / rect.width),
-                  rect.width + 50
-                );
-                document.querySelector(".video-container").style.filter =
-                  "brightness(0.7)";
-                setPlayed(false);
-                changeVideoTimeHandler(precent * videoDuration);
-              }
+              const rect = e.target.getBoundingClientRect();
+              const precent = Math.min(
+                Math.max(0, (e.clientX - rect.x) / rect.width),
+                rect.width + 50
+              );
+              document.querySelector(".video-container").style.filter =
+                "brightness(0.7)";
+              setPlayed(false);
+              changeVideoTimeHandler(precent * videoDuration);
             }}
             onTouchEnd={(e) => {
-              if (e.buttons !== 2) {
-                const rect = e.target.getBoundingClientRect();
-                const precent = Math.min(
-                  Math.max(0, (e.clientX - rect.x) / rect.width),
-                  rect.width + 50
-                );
-                setPlayed(true);
-                document.querySelector(".video-container").style.filter =
-                  "brightness(1)";
-                changeVideoTimeHandler(precent * videoDuration);
-              }
+              const rect = e.target.getBoundingClientRect();
+              const precent = Math.min(
+                Math.max(0, (e.clientX - rect.x) / rect.width),
+                rect.width + 50
+              );
+
+              setPlayed(true);
+
+              document.querySelector(".video-container").style.filter =
+                "brightness(1)";
+              changeVideoTimeHandler(precent * videoDuration);
             }}
             onDragEnd={(e) => {
               if (e.buttons !== 2) {
@@ -130,7 +128,9 @@ function App() {
                   Math.max(0, (e.clientX - rect.x) / rect.width),
                   rect.width + 50
                 );
+
                 setPlayed(true);
+
                 document.querySelector(".video-container").style.filter =
                   "brightness(1)";
                 changeVideoTimeHandler(precent * videoDuration);
