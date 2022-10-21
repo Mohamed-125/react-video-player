@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-video-player/static/css/main.ae4ecc1c.css",
-    "main.js": "/react-video-player/static/js/main.ab29f034.js",
+    "main.css": "/react-video-player/static/css/main.7f00fd12.css",
+    "main.js": "/react-video-player/static/js/main.df359fe0.js",
     "static/media/480.mp4": "/react-video-player/static/media/480.0802517e087a6369ddfc.mp4",
     "static/media/360.mp4": "/react-video-player/static/media/360.aea950bcb14c423a8fa8.mp4",
     "static/media/240.mp4": "/react-video-player/static/media/240.e06be018acd5f9446983.mp4",
     "static/media/144.mp4": "/react-video-player/static/media/144.2f6d8c649f4cd95308ba.mp4",
     "index.html": "/react-video-player/index.html",
-    "main.ae4ecc1c.css.map": "/react-video-player/static/css/main.ae4ecc1c.css.map",
-    "main.ab29f034.js.map": "/react-video-player/static/js/main.ab29f034.js.map"
+    "main.7f00fd12.css.map": "/react-video-player/static/css/main.7f00fd12.css.map",
+    "main.df359fe0.js.map": "/react-video-player/static/js/main.df359fe0.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae4ecc1c.css",
-    "static/js/main.ab29f034.js"
+    "static/css/main.7f00fd12.css",
+    "static/js/main.df359fe0.js"
   ]
 }
