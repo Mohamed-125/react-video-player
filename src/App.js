@@ -27,23 +27,6 @@ function App() {
     }
   }, [savedTime]);
 
-  const changeVideoTimeHandler = (value) => {
-    setVideoCurrentTime(value);
-    videoRef.current.currentTime = value;
-  };
-
-  useEffect(() => {
-    if (videoCurrentTime === videoDuration) {
-      setPlayed(false);
-    }
-    document.querySelector(".timeline-div").style.setProperty(
-      "--width",
-      `
-    ${(videoCurrentTime / videoDuration) * 100}%
-    `
-    );
-  }, [videoCurrentTime]);
-
   const formatTime = (time) => {
     const seconds = Math.floor(time % 60);
     const minutes = Math.floor(time / 60) % 60;
@@ -82,72 +65,16 @@ function App() {
           }
         ></video>
         <div className="video-controls-timeline-container">
-          <div
-            className={`timeline-div`}
-            onDrag={(e) => {
-              if (e.buttons !== 2) {
-                const rect = e.target.getBoundingClientRect();
-                const precent = Math.min(
-                  Math.max(0, (e.clientX - rect.x) / rect.width),
-                  rect.width + 50
-                );
-                document.querySelector(".video-container").style.filter =
-                  "brightness(0.7)";
-                setPlayed(false);
-                changeVideoTimeHandler(precent * videoDuration);
-              }
-            }}
-            onTouchMove={(e) => {
-              const rect = e.target.getBoundingClientRect();
-              const precent = Math.min(
-                Math.max(0, (e.clientX - rect.x) / rect.width),
-                rect.width + 50
-              );
-              document.querySelector(".video-container").style.filter =
-                "brightness(0.7)";
-              setPlayed(false);
-              changeVideoTimeHandler(precent * videoDuration);
-            }}
-            onTouchEnd={(e) => {
-              const rect = e.target.getBoundingClientRect();
-              const precent = Math.min(
-                Math.max(0, (e.clientX - rect.x) / rect.width),
-                rect.width + 50
-              );
-
-              setPlayed(true);
-
-              document.querySelector(".video-container").style.filter =
-                "brightness(1)";
-              changeVideoTimeHandler(precent * videoDuration);
-            }}
-            onDragEnd={(e) => {
-              if (e.buttons !== 2) {
-                const rect = e.target.getBoundingClientRect();
-                const precent = Math.min(
-                  Math.max(0, (e.clientX - rect.x) / rect.width),
-                  rect.width + 50
-                );
-
-                setPlayed(true);
-
-                document.querySelector(".video-container").style.filter =
-                  "brightness(1)";
-                changeVideoTimeHandler(precent * videoDuration);
-              }
-            }}
-            onMouseDown={(e) => {
-              if (e.buttons !== 2) {
-                const rect = e.target.getBoundingClientRect();
-                const precent = Math.min(
-                  Math.max(0, (e.clientX - rect.x) / rect.width),
-                  rect.width + 50
-                );
-                changeVideoTimeHandler(precent * videoDuration);
-              }
-            }}
-          >
-            <div className="timeline-progress-bar"></div>
+          <div className="timeline-div">
+            <input
+              type="range"
+              max={videoDuration}
+              value={videoCurrentTime}
+              onChange={(e) => {
+                videoRef.current.currentTime = e.target.value;
+                setVideoCurrentTime(e.target.value);
+              }}
+            />
           </div>
           <div className="video-controls-div">
             <div>

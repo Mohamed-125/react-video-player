@@ -224,44 +224,8 @@ video {
   }
 }
 
-.timeline-div {
-  --width: 0px;
+.timeline-div input {
   width: 100%;
-  height: 10px;
-  background-color: gray;
-  position: relative;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-/* .timeline-div::before {
-  content: "";
-  width: var(--width);
-  background-color: red;
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-  border-radius: 10px;
-} */
-.timeline-progress-bar {
-  width: var(--width);
-  background-color: red;
-  height: 100%;
-  position: absolute;
-  pointer-events: none;
-  bottom: 0;
-  border-radius: 10px;
-}
-.timeline-div:hover > div::after {
-  content: "";
-  /* translate: var(--width); */
-  background-color: red;
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  right: -10px;
-  bottom: -50%;
-  border-radius: 10px;
 }
 
 @media (max-width: 880px) {
