@@ -4,6 +4,9 @@ body {
 .app {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
@@ -205,29 +208,6 @@ video {
   animation: options-exit-animation forwards 0.3s;
 } */
 
-@keyframes options-enter-animation {
-  to {
-    translate: 0px;
-    opacity: 1;
-    width: 100%;
-  }
-}
-
-@keyframes options-exit-animation {
-  from {
-    translate: 0px;
-    opacity: 1;
-    width: 100%;
-    /* opacity: 1; */
-  }
-  to {
-    translate: 218px;
-    opacity: 0;
-    display: none;
-    width: 0%;
-  }
-}
-
 .timeline-div {
   --width: 0px;
   width: 100%;
@@ -277,15 +257,51 @@ video {
   .miniplayer-btn {
     display: none;
   }
+
   .video-controls-div {
     padding-inline: 5px;
   }
+
   .video-controls-div > div {
     display: flex;
     align-items: center;
     gap: 5px;
   }
+
   .volume-btn {
     display: none;
+  }
+  .settings-container {
+    padding: 10px 20px;
+    top: -170px;
+  }
+  .options-container {
+    top: -112px;
+    font-size: 14px;
+    translate: 178px;
+    height: 260px;
+    padding-block: 0px;
+  }
+  @keyframes options-enter-animation {
+    to {
+      translate: 0px;
+      opacity: 1;
+      width: 100%;
+    }
+  }
+
+  @keyframes options-exit-animation {
+    from {
+      translate: 0px;
+      opacity: 1;
+      width: 100%;
+      /* opacity: 1; */
+    }
+    to {
+      translate: 178px;
+      opacity: 0;
+      display: none;
+      width: 0%;
+    }
   }
 }
