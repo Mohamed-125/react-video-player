@@ -46,6 +46,9 @@ function App() {
         <video
           className="video"
           ref={videoRef}
+          onClick={() => {
+            setPlayed((pre) => !pre);
+          }}
           onLoadedMetadata={({ target }) => {
             setVideoDuration(target.duration);
           }}

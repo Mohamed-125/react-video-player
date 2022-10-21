@@ -165,7 +165,7 @@ video {
   width: 138px;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.9);
-  top: -230px;
+  top: -218px;
   left: -83px;
   height: 131px;
   display: grid;
@@ -184,14 +184,13 @@ video {
   left: 0;
   right: 0;
   bottom: 0;
-  top: -109px;
+  top: -38px;
   border-radius: 3px;
   translate: 218px;
-  width: 0px;
   opacity: 0;
   background-color: black;
-  height: 300px;
   width: 0px;
+  height: 229px;
   transition: 0.3s all ease;
 }
 .options-container > div {
@@ -224,8 +223,20 @@ video {
   }
 }
 
+.timeline-div {
+  margin-bottom: 10px;
+}
 .timeline-div input {
   width: 100%;
+}
+
+.speed-container p {
+  margin-block: 8px;
+  font-size: 14px;
+}
+
+.speed-container div div p:first-child {
+  margin-block: 1px;
 }
 
 @media (max-width: 880px) {
@@ -256,11 +267,13 @@ video {
     top: -170px;
   }
   .options-container {
-    top: -112px;
+    top: -69px;
     font-size: 14px;
     translate: 178px;
-    height: 260px;
-    padding-block: 0px;
+    height: 220px;
+  }
+  .options-container div {
+    padding-top: 5px !important;
   }
   @keyframes options-enter-animation {
     to {
