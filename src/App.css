@@ -15,29 +15,45 @@ body {
 button {
   background-color: transparent;
 }
-.video-container {
-  position: relative;
-}
 
 .video-container {
+  position: relative;
   width: 90%;
+  cursor: none;
   margin-inline: auto;
   display: flex;
   align-items: center;
 }
 
+.cursorShow {
+  cursor: auto;
+}
+.hovered {
+  transition-delay: 0s !important;
+  opacity: 1 !important;
+}
+
 video {
   width: 100%;
 }
+
 .video-controls-timeline-container {
-  background-color: rgba(0, 0, 0, 0.116);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.216),
+    rgba(0, 0, 0, 0)
+  );
   position: absolute;
   color: white;
-  bottom: 4.2px;
+
+  bottom: 0px;
   right: 0px;
   left: 0px;
   display: flex;
   flex-direction: column;
+  transition: 0.2s all ease;
+  transition-delay: 2s;
+  opacity: 0;
   padding-inline: 10px;
   justify-content: space-between;
 }
@@ -56,7 +72,6 @@ video {
 .video-controls-div > div {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
 .playpause {
@@ -103,12 +118,12 @@ video {
   cursor: pointer;
   display: flex;
   width: 40px;
-  gap: 10px;
+  gap: 2px;
   align-items: center;
   overflow: hidden;
 }
 .volume-btn:hover {
-  width: 220px;
+  width: 188px;
 }
 
 .volume-btn svg {
@@ -228,6 +243,10 @@ video {
 }
 .timeline-div input {
   width: 100%;
+  position: relative;
+  cursor: pointer;
+  accent-color: red;
+  top: 0.5rem;
 }
 
 .speed-container p {

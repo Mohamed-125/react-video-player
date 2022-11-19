@@ -1,22 +1,28 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const PlaypauseBtn = ({ videoRef, played, setPlayed }) => {
+const PlaypauseBtn = ({ videoRef, played, setPlayed, hoverAndOutHandler }) => {
   const playPauseToggle = () => {
     setPlayed((pre) => !pre);
   };
 
   useEffect(() => {
-    document.addEventListener("keypress", (e) => {
-      if (e.code === "Space") {
-        setPlayed((pre) => !pre);
+    const keydownHandler = (e) => {
+      if (e.key === " ") {
+        playPauseToggle();
       }
-    });
+    };
+    document.addEventListener("keydown", keydownHandler);
+    return () => {
+      document.removeEventListener("keydown", keydownHandler);
+    };
   }, []);
 
   useEffect(() => {
     if (played) {
+      hoverAndOutHandler();
       videoRef.current.play();
     } else {
+      hoverAndOutHandler();
       videoRef.current.pause();
     }
   }, [played]);

@@ -8,19 +8,24 @@ const FullscreenBtn = () => {
     if (!isRendered) {
       setIsRendered(true);
     } else {
-      if (fullscreen && document.fullscreenElement) {
+      if (document.fullscreenElement) {
         document.exitFullscreen();
       } else {
         document.querySelector(".video-container").requestFullscreen();
       }
     }
   }, [fullscreen]);
+
   useEffect(() => {
-    document.addEventListener("keypress", (e) => {
+    const fHandler = (e) => {
       if (e.code === "KeyF") {
         setFullscreen((pre) => !pre);
       }
-    });
+    };
+    document.addEventListener("keypress", fHandler);
+    return () => {
+      document.removeEventListener("keypress", fHandler);
+    };
   }, []);
 
   return (
