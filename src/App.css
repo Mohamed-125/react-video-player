@@ -23,11 +23,14 @@ button {
   margin-inline: auto;
   display: flex;
   align-items: center;
+  transition: 0s all ease;
+  transition-delay: 2s;
 }
 
-.cursorShow {
-  cursor: auto;
+.show-cursor {
+  cursor: auto !important;
 }
+
 .hovered {
   transition-delay: 0s !important;
   opacity: 1 !important;

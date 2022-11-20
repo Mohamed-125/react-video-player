@@ -17,12 +17,26 @@ function App() {
   const [savedTime, setSavedTime] = useState(0);
   const [video, setVideo] = useState(null);
   const [rendered, setRendered] = useState(false);
+  const [showCursor, setShowCursor] = useState(false);
   const videoContainer = useRef();
   const videoAll = useRef();
 
+  let timeout;
+  useEffect(() => {
+    if (showCursor) {
+    }
+  }, [showCursor]);
+
   const hoverOnVideoContainerHandler = () => {
     videoAll.current.classList.add("hovered");
-    videoContainer.current.classList.add("cursorShow");
+    videoContainer.current.classList.add("show-cursor");
+    (() => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        console.log("false");
+        videoContainer.current.classList.remove("show-cursor");
+      }, 2000);
+    })();
     const outEvent = new Event("mouseout");
     setTimeout(() => {
       videoContainer.current.dispatchEvent(outEvent);
@@ -31,9 +45,8 @@ function App() {
 
   const mouseOutHandler = () => {
     videoAll.current.classList.remove("hovered");
-    setTimeout(() => {
-      videoContainer.current.classList.remove("cursorShow");
-    }, 2000);
+    // console.log("pou");
+    // setShowCursor(false);
   };
 
   const hoverAndOutHandler = () => {

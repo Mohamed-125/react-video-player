@@ -26,7 +26,6 @@ const PlaypauseBtn = ({ videoRef, played, setPlayed, hoverAndOutHandler }) => {
       videoRef.current.pause();
     }
   }, [played]);
-
   return (
     <div
       onClick={playPauseToggle}
