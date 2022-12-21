@@ -45,8 +45,6 @@ function App() {
 
   const mouseOutHandler = () => {
     videoAll.current.classList.remove("hovered");
-    // console.log("pou");
-    // setShowCursor(false);
   };
 
   const hoverAndOutHandler = () => {
@@ -63,9 +61,11 @@ function App() {
       if (e.key === "ArrowRight") {
         hoverAndOutHandler();
         videoRef.current.currentTime = videoRef.current.currentTime + 5;
+        document.querySelector("#video-slider").value += 5;
       } else if (e.key === "ArrowLeft") {
         hoverAndOutHandler();
         videoRef.current.currentTime = videoRef.current.currentTime - 5;
+        document.querySelector("#video-slider").value -= 5;
       } else {
         return;
       }
@@ -139,7 +139,9 @@ function App() {
                     type="range"
                     max={videoDuration}
                     value={videoCurrentTime}
-                    step={5}
+                    id="video-slider"
+                    step={0}
+                    onKeyDown={(e) => e.preventDefault()}
                     onChange={(e) => {
                       videoRef.current.currentTime = e.target.value;
                       setVideoCurrentTime(e.target.value);
